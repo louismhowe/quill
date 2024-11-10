@@ -112,13 +112,13 @@ if (QUILL_MASTER_PROJECT)
     option(QUILL_VERBOSE_MAKEFILE "Enable verbose output for makefiles when Quill is the master project. This provides detailed information about the build process." OFF)
     message(STATUS "CMAKE_BUILD_TYPE: " ${CMAKE_BUILD_TYPE})
     message(STATUS "QUILL_VERSION: ${QUILL_VERSION}")
-endif ()
 
-message(STATUS "QUILL_NO_EXCEPTIONS: " ${QUILL_NO_EXCEPTIONS})
-message(STATUS "QUILL_NO_THREAD_NAME_SUPPORT: " ${QUILL_NO_THREAD_NAME_SUPPORT})
-message(STATUS "QUILL_X86ARCH: " ${QUILL_X86ARCH})
-message(STATUS "QUILL_DISABLE_NON_PREFIXED_MACROS: " ${QUILL_DISABLE_NON_PREFIXED_MACROS})
-message(STATUS "QUILL_ENABLE_INSTALL: " ${QUILL_ENABLE_INSTALL})
+    message(STATUS "QUILL_NO_EXCEPTIONS: " ${QUILL_NO_EXCEPTIONS})
+    message(STATUS "QUILL_NO_THREAD_NAME_SUPPORT: " ${QUILL_NO_THREAD_NAME_SUPPORT})
+    message(STATUS "QUILL_X86ARCH: " ${QUILL_X86ARCH})
+    message(STATUS "QUILL_DISABLE_NON_PREFIXED_MACROS: " ${QUILL_DISABLE_NON_PREFIXED_MACROS})
+    message(STATUS "QUILL_ENABLE_INSTALL: " ${QUILL_ENABLE_INSTALL})
+endif ()
 
 #---------------------------------------------------------------------------------------
 # Verbose make file option
