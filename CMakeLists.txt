@@ -298,6 +298,11 @@ target_include_directories(${TARGET_NAME}
 target_compile_options(${TARGET_NAME} INTERFACE
         $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wno-gnu-zero-variadic-macro-arguments>)
 
+if (WIN32)
+    target_compile_definitions(${TARGET_NAME} INTERFACE
+       _CRT_SECURE_NO_WARNINGS)
+endif()
+
 # Install
 if (QUILL_MASTER_PROJECT OR QUILL_ENABLE_INSTALL)
     # ---- Install ---- #

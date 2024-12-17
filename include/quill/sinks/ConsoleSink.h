@@ -475,7 +475,7 @@ public:
 
       if (QUILL_UNLIKELY(!write_to_console))
       {
-        auto const error = std::error_code(GetLastError(), std::system_category());
+        auto const error = std::error_code((int)GetLastError(), std::system_category());
         QUILL_THROW(QuillError{std::string{"WriteConsoleA failed. error: "} + error.message() +
                                std::string{" errno: "} + std::to_string(error.value())});
       }
@@ -484,7 +484,7 @@ public:
       bool const set_text_attr = SetConsoleTextAttribute(out_handle, orig_attribs);
       if (QUILL_UNLIKELY(!set_text_attr))
       {
-        auto const error = std::error_code(GetLastError(), std::system_category());
+        auto const error = std::error_code((int)GetLastError(), std::system_category());
         QUILL_THROW(QuillError{std::string{"SetConsoleTextAttribute failed. error: "} + error.message() +
                                std::string{" errno: "} + std::to_string(error.value())});
       }
@@ -525,7 +525,7 @@ private:
     bool const screen_buffer_info = GetConsoleScreenBufferInfo(out_handle, &orig_buffer_info);
     if (QUILL_UNLIKELY(!screen_buffer_info))
     {
-      auto const error = std::error_code(GetLastError(), std::system_category());
+      auto const error = std::error_code((int)GetLastError(), std::system_category());
       QUILL_THROW(QuillError{std::string{"GetConsoleScreenBufferInfo failed. error: "} +
                              error.message() + std::string{" errno: "} + std::to_string(error.value())});
     }
@@ -540,7 +540,7 @@ private:
     bool const console_text_attr = SetConsoleTextAttribute(out_handle, attributes | back_color);
     if (QUILL_UNLIKELY(!console_text_attr))
     {
-      auto const error = std::error_code(GetLastError(), std::system_category());
+      auto const error = std::error_code((int)GetLastError(), std::system_category());
       QUILL_THROW(QuillError{std::string{"SetConsoleTextAttribute failed. error: "} + error.message() +
                              std::string{" errno: "} + std::to_string(error.value())});
     }

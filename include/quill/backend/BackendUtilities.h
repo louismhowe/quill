@@ -68,7 +68,7 @@ QUILL_ATTRIBUTE_COLD inline void set_cpu_affinity(uint16_t cpu_id)
   auto ret = SetThreadAffinityMask(GetCurrentThread(), mask);
   if (ret == 0)
   {
-    auto const last_error = std::error_code(GetLastError(), std::system_category());
+    auto const last_error = std::error_code((int)GetLastError(), std::system_category());
 
     QUILL_THROW(
       QuillError{std::string{"Failed to set cpu affinity - errno: " + std::to_string(last_error.value()) +
