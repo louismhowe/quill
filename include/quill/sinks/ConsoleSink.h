@@ -137,6 +137,12 @@ public:
   static constexpr WORD on_cyan = BACKGROUND_GREEN | BACKGROUND_BLUE;
   static constexpr WORD on_white = BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_BLUE;
 
+  /// Bold colors
+  static constexpr WORD white_bold = white | bold;
+  static constexpr WORD yellow_bold = yellow | bold;
+  static constexpr WORD red_bold = red | bold;
+  static constexpr WORD bold_on_red = on_red | bold;
+
 private:
   friend class ConsoleSink;
 
